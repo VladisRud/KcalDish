@@ -12,10 +12,15 @@
 		587C962E2C382146004A170E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C962D2C382146004A170E /* StartViewController.swift */; };
 		587C96332C382147004A170E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587C96322C382147004A170E /* Assets.xcassets */; };
 		587C96362C382147004A170E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 587C96352C382147004A170E /* Base */; };
-		58CDDF652C382AF900E3753A /* CalculationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDDF642C382AF900E3753A /* CalculationTableViewController.swift */; };
+		58B91CA02C5A34660090F8EC /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B91C9F2C5A34660090F8EC /* Calculations.swift */; };
+		58CDDF652C382AF900E3753A /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDDF642C382AF900E3753A /* CalculationViewController.swift */; };
 		58CDDF672C382FB800E3753A /* CalculationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */; };
 		58EB325B2C4D5BFA004D5FD1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EB325A2C4D5BFA004D5FD1 /* TabBarViewController.swift */; };
 		58EB325D2C4D5CC6004D5FD1 /* CookBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EB325C2C4D5CC6004D5FD1 /* CookBookTableViewController.swift */; };
+		58EB326C2C511F2A004D5FD1 /* Dish.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58EB326A2C511F2A004D5FD1 /* Dish.xcdatamodeld */; };
+		58EB326E2C5131F7004D5FD1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EB326D2C5131F7004D5FD1 /* StorageManager.swift */; };
+		58EB32782C513B0C004D5FD1 /* DishInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EB32772C513B0C004D5FD1 /* DishInformationViewController.swift */; };
+		58EB327A2C57DD72004D5FD1 /* ProductInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EB32792C57DD72004D5FD1 /* ProductInformationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +31,15 @@
 		587C96322C382147004A170E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		587C96352C382147004A170E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		587C96372C382147004A170E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58CDDF642C382AF900E3753A /* CalculationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationTableViewController.swift; sourceTree = "<group>"; };
+		58B91C9F2C5A34660090F8EC /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		58CDDF642C382AF900E3753A /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationTableViewCell.swift; sourceTree = "<group>"; };
 		58EB325A2C4D5BFA004D5FD1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		58EB325C2C4D5CC6004D5FD1 /* CookBookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookBookTableViewController.swift; sourceTree = "<group>"; };
+		58EB326B2C511F2A004D5FD1 /* Dish.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dish.xcdatamodel; sourceTree = "<group>"; };
+		58EB326D2C5131F7004D5FD1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		58EB32772C513B0C004D5FD1 /* DishInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishInformationViewController.swift; sourceTree = "<group>"; };
+		58EB32792C57DD72004D5FD1 /* ProductInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInformationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +72,63 @@
 		587C96282C382146004A170E /* KcalDish */ = {
 			isa = PBXGroup;
 			children = (
-				587C96292C382146004A170E /* AppDelegate.swift */,
-				587C962B2C382146004A170E /* SceneDelegate.swift */,
-				58EB325A2C4D5BFA004D5FD1 /* TabBarViewController.swift */,
-				587C962D2C382146004A170E /* StartViewController.swift */,
-				58EB325C2C4D5CC6004D5FD1 /* CookBookTableViewController.swift */,
-				58CDDF642C382AF900E3753A /* CalculationTableViewController.swift */,
-				58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */,
-				587C96322C382147004A170E /* Assets.xcassets */,
+				58B91CA52C5A5EBD0090F8EC /* App */,
+				58B91CA32C5A5E890090F8EC /* Model */,
+				58B91CA22C5A5E800090F8EC /* ViewControllers */,
+				58B91CA42C5A5E900090F8EC /* Services */,
 				587C96342C382147004A170E /* LaunchScreen.storyboard */,
 				587C96372C382147004A170E /* Info.plist */,
 			);
 			path = KcalDish;
+			sourceTree = "<group>";
+		};
+		58B91CA22C5A5E800090F8EC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				58EB325A2C4D5BFA004D5FD1 /* TabBarViewController.swift */,
+				587C962D2C382146004A170E /* StartViewController.swift */,
+				58CDDF642C382AF900E3753A /* CalculationViewController.swift */,
+				58EB325C2C4D5CC6004D5FD1 /* CookBookTableViewController.swift */,
+				58EB32772C513B0C004D5FD1 /* DishInformationViewController.swift */,
+				58B91CA62C5CED8B0090F8EC /* Views */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		58B91CA32C5A5E890090F8EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58EB326A2C511F2A004D5FD1 /* Dish.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		58B91CA42C5A5E900090F8EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				58EB326D2C5131F7004D5FD1 /* StorageManager.swift */,
+				58B91C9F2C5A34660090F8EC /* Calculations.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		58B91CA52C5A5EBD0090F8EC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				587C96292C382146004A170E /* AppDelegate.swift */,
+				587C962B2C382146004A170E /* SceneDelegate.swift */,
+				587C96322C382147004A170E /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		58B91CA62C5CED8B0090F8EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */,
+				58EB32792C57DD72004D5FD1 /* ProductInformationTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,12 +202,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				58CDDF672C382FB800E3753A /* CalculationTableViewCell.swift in Sources */,
+				58EB326E2C5131F7004D5FD1 /* StorageManager.swift in Sources */,
 				587C962E2C382146004A170E /* StartViewController.swift in Sources */,
-				58CDDF652C382AF900E3753A /* CalculationTableViewController.swift in Sources */,
+				58CDDF652C382AF900E3753A /* CalculationViewController.swift in Sources */,
 				587C962A2C382146004A170E /* AppDelegate.swift in Sources */,
 				587C962C2C382146004A170E /* SceneDelegate.swift in Sources */,
 				58EB325B2C4D5BFA004D5FD1 /* TabBarViewController.swift in Sources */,
+				58B91CA02C5A34660090F8EC /* Calculations.swift in Sources */,
+				58EB32782C513B0C004D5FD1 /* DishInformationViewController.swift in Sources */,
 				58EB325D2C4D5CC6004D5FD1 /* CookBookTableViewController.swift in Sources */,
+				58EB327A2C57DD72004D5FD1 /* ProductInformationTableViewCell.swift in Sources */,
+				58EB326C2C511F2A004D5FD1 /* Dish.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +433,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		58EB326A2C511F2A004D5FD1 /* Dish.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				58EB326B2C511F2A004D5FD1 /* Dish.xcdatamodel */,
+			);
+			currentVersion = 58EB326B2C511F2A004D5FD1 /* Dish.xcdatamodel */;
+			path = Dish.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 587C961E2C382146004A170E /* Project object */;
 }

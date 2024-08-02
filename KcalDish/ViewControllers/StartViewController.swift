@@ -9,23 +9,18 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
         addElementsOnScreen()
         doConstainsStack()
+        calculateButton.addTarget(self, action: #selector(startCalculate), for: .touchUpInside)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-    
-    
-    
-    
     
     // MARK: - UIElements and Constrains
     private var mainStack: UIStackView = {
@@ -44,7 +39,7 @@ class StartViewController: UIViewController {
         return label
     }()
     
-    private var productQuantityTF: UITextField = {
+    private var productNumberTF: UITextField = {
         let textField = UITextField()
         textField.placeholder = "How many ingredients?"
         textField.borderStyle = .roundedRect
@@ -67,7 +62,7 @@ private extension StartViewController {
         [
             mainStack,
             greetingLabel,
-            productQuantityTF,
+            productNumberTF,
             calculateButton
         ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +72,7 @@ private extension StartViewController {
         
         [
             greetingLabel,
-            productQuantityTF,
+            productNumberTF,
             calculateButton
         ].forEach {
             mainStack.addArrangedSubview($0)
@@ -90,6 +85,16 @@ private extension StartViewController {
             mainStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
+    }
+    
+    @objc func startCalculate() {
+        guard let numberText = productNumberTF.text, let number = Int(numberText) else {
+            return
+        }
+        let calcVC = CalculationViewController()
+        calcVC.cellNumber = number
+        view.endEditing(true)
+        present(calcVC, animated: true)
     }
     
 }
