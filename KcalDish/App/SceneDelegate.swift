@@ -22,11 +22,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         
-        let firstViewController = TabBarViewController()
+        let startVC = StartViewController()
+        startVC.title = "Calculate"
         
-        window.rootViewController = UINavigationController(rootViewController: firstViewController)
+        let cookBookTVC = CookBookTableViewController()
+        cookBookTVC.title = "Cook Book"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.myColorMain
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.myColorText]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.myColorText]
+        
+        let firstNC = UINavigationController(rootViewController: startVC)
+        firstNC.tabBarItem.title = "Calculate"
+        firstNC.tabBarItem.image = UIImage(systemName: "fork.knife")
+        firstNC.navigationBar.prefersLargeTitles = true
+        firstNC.navigationBar.standardAppearance = appearance
+        firstNC.navigationBar.scrollEdgeAppearance = appearance
+        let secondNC = UINavigationController(rootViewController: cookBookTVC)
+        secondNC.tabBarItem.title = "Cook Book"
+        secondNC.tabBarItem.image = UIImage(systemName: "text.book.closed.fill")
+        secondNC.navigationBar.prefersLargeTitles = true
+        secondNC.navigationBar.standardAppearance = appearance
+        secondNC.navigationBar.scrollEdgeAppearance = appearance
+        
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.backgroundColor = UIColor.myColorMain
+        tabBarController.tabBar.tintColor = UIColor.myColorText
+        tabBarController.viewControllers = [firstNC, secondNC]
+        
+        let rootVC = tabBarController
+        
+        window.rootViewController = rootVC
         
         window.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

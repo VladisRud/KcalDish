@@ -15,7 +15,7 @@ class DishInformationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .myColorBackground
         tableView.dataSource = self
         tableView.delegate = self
         addElementsOnScreen()

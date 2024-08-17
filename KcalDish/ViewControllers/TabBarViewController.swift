@@ -12,13 +12,15 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
-
+        self.tabBar.tintColor = UIColor(named: "MyColorText")
+        self.tabBar.backgroundColor = UIColor(named: "MyColorMain")
         // Do any additional setup after loading the view.
     }
     
     //MARK: - Tab Setup
     private func setupTabs() {
         let start = self.createNavBar(with: "Calculate", and: UIImage(systemName: "fork.knife"), vc: StartViewController())
+        
         let track = self.createNavBar(with: "Cook Book", and: UIImage(systemName: "text.book.closed.fill"), vc: CookBookTableViewController())
         
         self.setViewControllers([start, track], animated: true)
@@ -30,5 +32,5 @@ class TabBarViewController: UITabBarController {
         nav.tabBarItem.image = image
         return nav
     }
-
+    
 }

@@ -15,8 +15,9 @@ class CookBookTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .myColorBackground
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.title = "Cook Book"
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -11,10 +11,11 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .myColorBackground
         addElementsOnScreen()
         doConstainsStack()
         calculateButton.addTarget(self, action: #selector(startCalculate), for: .touchUpInside)
+        self.title = "Calculate"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -35,6 +36,7 @@ class StartViewController: UIViewController {
     private var greetingLabel: UILabel = {
         let label = UILabel()
         label.text = "Hi, let's start calculate your dish!"
+        label.textColor = UIColor(named: "MyColorText")
         label.font = .systemFont(ofSize: 20)
         return label
     }()
@@ -43,8 +45,10 @@ class StartViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "How many ingredients?"
         textField.borderStyle = .roundedRect
+        textField.layer.borderColor = UIColor.myColorMain.cgColor
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 5
         textField.keyboardType = .numberPad
-        textField.layer.cornerRadius = 10
         return textField
     }()
     

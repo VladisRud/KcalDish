@@ -16,18 +16,20 @@ class CalculationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .myColorBackground
         tableView.dataSource = self
         tableView.delegate = self
         addElementsOnScrenn()
         doConstrains()
         saveDishButton.addTarget(self, action: #selector(saveDish), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
     }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -40,6 +42,9 @@ class CalculationViewController: UIViewController {
         textField.placeholder = "Dish name"
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
+        textField.layer.borderColor = UIColor.myColorMain.cgColor
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 5
         return textField
     }()
     
@@ -49,6 +54,9 @@ class CalculationViewController: UIViewController {
         textField.keyboardType = .numberPad
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
+        textField.layer.borderColor = UIColor.myColorMain.cgColor
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 5
         return textField
     }()
     
@@ -60,10 +68,14 @@ class CalculationViewController: UIViewController {
     }()
     
     private var saveDishButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(type: .custom)
         button.setTitle("Save Dish", for: .normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.layer.cornerRadius = 10
+        button.tintColor = .systemBlue
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.frame.size.width = 13
+        button.frame.size.height = 100
+        button.setTitleColor(.systemBlue, for: .normal)
         return button
     }()
     
@@ -97,7 +109,7 @@ private extension CalculationViewController {
             tableView.bottomAnchor.constraint(equalTo: saveDishButton.topAnchor, constant: -16),
             saveDishButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             saveDishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            saveDishButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
+            saveDishButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
         ])
     }
     
@@ -120,6 +132,7 @@ extension CalculationViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "calculationCell", for: indexPath) as! CalculationTableViewCell
+        cell.selectionStyle = .none
         cell.textDidChange = { [weak self] newText in
             guard let self = self else { return }
             
@@ -142,32 +155,77 @@ extension CalculationViewController: UITableViewDataSource, UITableViewDelegate 
     
     @objc func saveDish() {
         var newDish = storageManager.create(dishNameTextField.text ?? "No name")
-        
-        guard let totalMass = Double(dishTotalMassTextField.text ?? "0") else { return }
+        let totalMass = createDoubleFromTFText(dishTotalMassTextField)
         
         for i in 0..<cellNumber {
             let product = storageManager.createProduct()
-            let productCart = storageManager.createProductCart()
             if let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? CalculationTableViewCell {
                 product.name = cell.productNameTextField.text ?? "No name"
-                product.mass = Double(cell.productMassTextField.text ?? "0") ?? 0
-                product.kcal = Double(cell.productKcalTextField.text ?? "0") ?? 0
-                product.fats = Double(cell.productFatsTextField.text ?? "0") ?? 0
-                product.carbohydrates = Double(cell.productCarbsTextField.text ?? "0") ?? 0
-                product.proteins = Double(cell.productProtsTextField.text ?? "0") ?? 0
-                
-                productCart.name = cell.productNameTextField.text ?? "No name"
-                productCart.mass = Double(cell.productMassTextField.text ?? "0") ?? 0
-                productCart.kcal = Double(cell.productKcalTextField.text ?? "0") ?? 0
-                productCart.fats = Double(cell.productFatsTextField.text ?? "0") ?? 0
-                productCart.carbohydrates = Double(cell.productCarbsTextField.text ?? "0") ?? 0
-                productCart.proteins = Double(cell.productProtsTextField.text ?? "0") ?? 0
+                product.mass = createDoubleFromTFText(cell.productMassTextField)
+                product.kcal = createDoubleFromTFText(cell.productKcalTextField)
+                product.fats = createDoubleFromTFText(cell.productFatsTextField)
+                product.carbohydrates = createDoubleFromTFText(cell.productCarbsTextField)
+                product.proteins = createDoubleFromTFText(cell.productProtsTextField)
             }
+            
+            if checkProduct(product) == true {
+                if let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as? CalculationTableViewCell {
+                    let productCart = storageManager.createProductCart()
+                    productCart.name = cell.productNameTextField.text ?? "No name"
+                    productCart.mass = createDoubleFromTFText(cell.productMassTextField)
+                    productCart.kcal = createDoubleFromTFText(cell.productKcalTextField)
+                    productCart.fats = createDoubleFromTFText(cell.productFatsTextField)
+                    productCart.carbohydrates = createDoubleFromTFText(cell.productCarbsTextField)
+                    productCart.proteins = createDoubleFromTFText(cell.productProtsTextField)
+                }
+            }
+            
             newDish.addToIngredients(product)
             newDish = calculation.getDishNutrition(newDish, totalMass: totalMass)
             storageManager.saveContext()
+            
         }
-        dismiss(animated: true)
+        showAlert()
+    }
+    
+}
+
+extension CalculationViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        view.endEditing(true)
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Succes!", message: "Nutrition Calculated", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [unowned self] _ in
+            dismiss(animated: true)
+        }))
+        present(alert, animated: true)
+    }
+    
+    func createDoubleFromTFText(_ tf: UITextField) -> Double {
+        guard let textToDouble = tf.text else { return 999 }
+        let doubleText = textToDouble.replacingOccurrences(of: ",", with: ".")
+        return Double(doubleText) ?? 0
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        tableView.contentInset = .zero
+    }
+    
+    func checkProduct(_ product: Ingredients) -> Bool {
+        if product.name == "No name" || product.kcal == 999 || product.fats == 999  || product.carbohydrates == 999  || product.proteins == 999 {
+            return true
+        } else {
+            return false
+        }
     }
     
 }
