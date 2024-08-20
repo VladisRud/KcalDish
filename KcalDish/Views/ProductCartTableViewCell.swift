@@ -1,15 +1,13 @@
 //
-//  ProductInformationTableViewCell.swift
+//  ProductCartTableViewCell.swift
 //  KcalDish
 //
-//  Created by Vlad Rudenko on 29.07.2024.
+//  Created by Vlad Rudenko on 20.08.2024.
 //
 
 import UIKit
 
-class ProductInformationTableViewCell: UITableViewCell {
-
-    let cellNumber = 0
+class ProductCartTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,14 +48,6 @@ class ProductInformationTableViewCell: UITableViewCell {
         return label
     }()
     
-    var productMassLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Mass"
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 15)
-        return label
-    }()
-    
     var productKcalLabel: UILabel = {
         let label = UILabel()
         label.text = "Kcal"
@@ -94,7 +84,6 @@ class ProductInformationTableViewCell: UITableViewCell {
         [
             labelStack,
             productNameLabel,
-            productMassLabel,
             productKcalLabel,
             productFatsLabel,
             productCarbsLabel,
@@ -108,7 +97,6 @@ class ProductInformationTableViewCell: UITableViewCell {
         
         [
             productNameLabel,
-            productMassLabel,
             productKcalLabel,
             productFatsLabel,
             productCarbsLabel,

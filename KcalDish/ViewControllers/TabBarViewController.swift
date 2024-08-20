@@ -23,7 +23,9 @@ class TabBarViewController: UITabBarController {
         
         let track = self.createNavBar(with: "Cook Book", and: UIImage(systemName: "text.book.closed.fill"), vc: CookBookTableViewController())
         
-        self.setViewControllers([start, track], animated: true)
+        let cart = self.createNavBar(with: "Product Cart", and: UIImage(systemName: "cart.fill"), vc: ProductCartTableViewController())
+        
+        self.setViewControllers([start, track, cart], animated: true)
     }
     
     private func createNavBar(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {

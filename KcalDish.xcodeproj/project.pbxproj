@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58509FF02C74D14600C74984 /* ProductCartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509FEF2C74D14600C74984 /* ProductCartTableViewController.swift */; };
+		58509FF22C74F0A800C74984 /* ProductCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509FF12C74F0A800C74984 /* ProductCartTableViewCell.swift */; };
 		587C962A2C382146004A170E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C96292C382146004A170E /* AppDelegate.swift */; };
 		587C962C2C382146004A170E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C962B2C382146004A170E /* SceneDelegate.swift */; };
 		587C962E2C382146004A170E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C962D2C382146004A170E /* StartViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58509FEF2C74D14600C74984 /* ProductCartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartTableViewController.swift; sourceTree = "<group>"; };
+		58509FF12C74F0A800C74984 /* ProductCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartTableViewCell.swift; sourceTree = "<group>"; };
 		587C96262C382146004A170E /* KcalDish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KcalDish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587C96292C382146004A170E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		587C962B2C382146004A170E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 				58CDDF642C382AF900E3753A /* CalculationViewController.swift */,
 				58EB325C2C4D5CC6004D5FD1 /* CookBookTableViewController.swift */,
 				58EB32772C513B0C004D5FD1 /* DishInformationViewController.swift */,
+				58509FEF2C74D14600C74984 /* ProductCartTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			children = (
 				58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */,
 				58EB32792C57DD72004D5FD1 /* ProductInformationTableViewCell.swift */,
+				58509FF12C74F0A800C74984 /* ProductCartTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 			files = (
 				58CDDF672C382FB800E3753A /* CalculationTableViewCell.swift in Sources */,
 				58EB326E2C5131F7004D5FD1 /* StorageManager.swift in Sources */,
+				58509FF02C74D14600C74984 /* ProductCartTableViewController.swift in Sources */,
 				587C962E2C382146004A170E /* StartViewController.swift in Sources */,
 				58CDDF652C382AF900E3753A /* CalculationViewController.swift in Sources */,
 				587C962A2C382146004A170E /* AppDelegate.swift in Sources */,
@@ -213,6 +220,7 @@
 				58EB325D2C4D5CC6004D5FD1 /* CookBookTableViewController.swift in Sources */,
 				58EB327A2C57DD72004D5FD1 /* ProductInformationTableViewCell.swift in Sources */,
 				58EB326C2C511F2A004D5FD1 /* Dish.xcdatamodeld in Sources */,
+				58509FF22C74F0A800C74984 /* ProductCartTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

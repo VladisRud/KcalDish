@@ -100,6 +100,11 @@ final class StorageManager {
         viewContext.delete(dish)
         saveContext()
     }
+    
+    func delete(_ product: ProductCart) {
+        viewContext.delete(product)
+        saveContext()
+    }
 
     // MARK: - Core Data Saving support
     func saveContext() {

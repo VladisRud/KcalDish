@@ -28,6 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let cookBookTVC = CookBookTableViewController()
         cookBookTVC.title = "Cook Book"
         
+        let productCartTVC = ProductCartTableViewController()
+        productCartTVC.title = "Product Cart"
+        
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.myColorMain
         appearance.titleTextAttributes = [.foregroundColor: UIColor.myColorText]
@@ -45,11 +48,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         secondNC.navigationBar.prefersLargeTitles = true
         secondNC.navigationBar.standardAppearance = appearance
         secondNC.navigationBar.scrollEdgeAppearance = appearance
+        let thirdNC = UINavigationController(rootViewController: productCartTVC)
+        thirdNC.tabBarItem.title = "Product Cart"
+        thirdNC.tabBarItem.image = UIImage(systemName: "cart.fill")
+        thirdNC.navigationBar.prefersLargeTitles = true
+        thirdNC.navigationBar.standardAppearance = appearance
+        thirdNC.navigationBar.scrollEdgeAppearance = appearance
         
         let tabBarController = UITabBarController()
         tabBarController.tabBar.backgroundColor = UIColor.myColorMain
         tabBarController.tabBar.tintColor = UIColor.myColorText
-        tabBarController.viewControllers = [firstNC, secondNC]
+        tabBarController.tabBar.barTintColor = UIColor.myColorMain
+        tabBarController.viewControllers = [firstNC, secondNC, thirdNC]
+        
         
         let rootVC = tabBarController
         
