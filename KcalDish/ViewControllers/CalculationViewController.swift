@@ -183,8 +183,8 @@ extension CalculationViewController: UITableViewDataSource, UITableViewDelegate 
             newDish.addToIngredients(product)
             newDish = calculation.getDishNutrition(newDish, totalMass: totalMass)
             storageManager.saveContext()
-            
         }
+        
         showAlert()
     }
     

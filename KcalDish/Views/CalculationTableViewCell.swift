@@ -10,6 +10,7 @@ import UIKit
 class CalculationTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     let cellNumber = 0
+    let measure = Measure.shared
     
     var textDidChange: ((String) -> Void)?
 
@@ -230,27 +231,22 @@ class CalculationTableViewCell: UITableViewCell, UITextFieldDelegate {
             productNameTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             productNameTextField.bottomAnchor.constraint(equalTo: textFieldStack.topAnchor, constant: -24),
             productNameTextField.bottomAnchor.constraint(equalTo: labelStack.topAnchor, constant: -24),
-            labelStack.topAnchor.constraint(equalTo: productNameTextField.bottomAnchor, constant: 8),
             labelStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             labelStack.trailingAnchor.constraint(equalTo: textFieldStack.leadingAnchor, constant: -16),
             labelStack.bottomAnchor.constraint(equalTo: footerVeiw.topAnchor, constant: -8),
-            textFieldStack.topAnchor.constraint(equalTo: productNameTextField.bottomAnchor, constant: 8),
             textFieldStack.leadingAnchor.constraint(equalTo: labelStack.trailingAnchor, constant: 16),
             textFieldStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             textFieldStack.bottomAnchor.constraint(equalTo: footerVeiw.topAnchor, constant: -8),
             productNameTextField.heightAnchor.constraint(equalToConstant: 30),
-            productMassTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
-            productKcalTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
-            productFatsTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
-            productCarbsTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
-            productProtsTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
-            footerVeiw.topAnchor.constraint(equalTo: textFieldStack.bottomAnchor, constant: 0),
-            footerVeiw.topAnchor.constraint(equalTo: labelStack.bottomAnchor, constant: 0),
+//            productMassTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
+//            productKcalTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
+//            productFatsTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
+//            productCarbsTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
+//            productProtsTextField.heightAnchor.constraint(equalTo: productNameTextField.heightAnchor),
             footerVeiw.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             footerVeiw.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             footerVeiw.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             footerVeiw.heightAnchor.constraint(equalToConstant: 20),
-            footerVeiw.widthAnchor.constraint(equalToConstant: contentView.frame.width)
         ])
     }
     

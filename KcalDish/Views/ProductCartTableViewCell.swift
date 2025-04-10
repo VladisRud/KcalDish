@@ -45,6 +45,7 @@ class ProductCartTableViewCell: UITableViewCell {
         label.text = "Name"
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 15)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -93,10 +94,10 @@ class ProductCartTableViewCell: UITableViewCell {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        contentView.addSubview(productNameLabel)
         contentView.addSubview(labelStack)
         
         [
-            productNameLabel,
             productKcalLabel,
             productFatsLabel,
             productCarbsLabel,
@@ -108,7 +109,10 @@ class ProductCartTableViewCell: UITableViewCell {
     
     private func setUpCell() {
         NSLayoutConstraint.activate([
-            labelStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            productNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            productNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            productNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            labelStack.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 16),
             labelStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             labelStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             labelStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)

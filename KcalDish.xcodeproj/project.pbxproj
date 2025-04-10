@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		58509FF02C74D14600C74984 /* ProductCartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509FEF2C74D14600C74984 /* ProductCartTableViewController.swift */; };
 		58509FF22C74F0A800C74984 /* ProductCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509FF12C74F0A800C74984 /* ProductCartTableViewCell.swift */; };
+		58509FF42C7E117700C74984 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58509FF32C7E117700C74984 /* SettingsViewController.swift */; };
 		587C962A2C382146004A170E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C96292C382146004A170E /* AppDelegate.swift */; };
 		587C962C2C382146004A170E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C962B2C382146004A170E /* SceneDelegate.swift */; };
 		587C962E2C382146004A170E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587C962D2C382146004A170E /* StartViewController.swift */; };
 		587C96332C382147004A170E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587C96322C382147004A170E /* Assets.xcassets */; };
 		587C96362C382147004A170E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 587C96352C382147004A170E /* Base */; };
+		588E1D0B2CB02E3D0006C6BB /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588E1D0A2CB02E3D0006C6BB /* Measure.swift */; };
 		58B91CA02C5A34660090F8EC /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B91C9F2C5A34660090F8EC /* Calculations.swift */; };
+		58CC9AC02CC1615600B4A8B4 /* CopyToClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CC9ABF2CC1615600B4A8B4 /* CopyToClipboard.swift */; };
 		58CDDF652C382AF900E3753A /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDDF642C382AF900E3753A /* CalculationViewController.swift */; };
 		58CDDF672C382FB800E3753A /* CalculationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */; };
 		58EB325B2C4D5BFA004D5FD1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EB325A2C4D5BFA004D5FD1 /* TabBarViewController.swift */; };
@@ -28,6 +31,7 @@
 /* Begin PBXFileReference section */
 		58509FEF2C74D14600C74984 /* ProductCartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartTableViewController.swift; sourceTree = "<group>"; };
 		58509FF12C74F0A800C74984 /* ProductCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartTableViewCell.swift; sourceTree = "<group>"; };
+		58509FF32C7E117700C74984 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		587C96262C382146004A170E /* KcalDish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KcalDish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		587C96292C382146004A170E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		587C962B2C382146004A170E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +39,9 @@
 		587C96322C382147004A170E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		587C96352C382147004A170E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		587C96372C382147004A170E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		588E1D0A2CB02E3D0006C6BB /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		58B91C9F2C5A34660090F8EC /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		58CC9ABF2CC1615600B4A8B4 /* CopyToClipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyToClipboard.swift; sourceTree = "<group>"; };
 		58CDDF642C382AF900E3753A /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationTableViewCell.swift; sourceTree = "<group>"; };
 		58EB325A2C4D5BFA004D5FD1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 				58EB325C2C4D5CC6004D5FD1 /* CookBookTableViewController.swift */,
 				58EB32772C513B0C004D5FD1 /* DishInformationViewController.swift */,
 				58509FEF2C74D14600C74984 /* ProductCartTableViewController.swift */,
+				58509FF32C7E117700C74984 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -113,6 +120,7 @@
 			children = (
 				58EB326D2C5131F7004D5FD1 /* StorageManager.swift */,
 				58B91C9F2C5A34660090F8EC /* Calculations.swift */,
+				588E1D0A2CB02E3D0006C6BB /* Measure.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 				58CDDF662C382FB800E3753A /* CalculationTableViewCell.swift */,
 				58EB32792C57DD72004D5FD1 /* ProductInformationTableViewCell.swift */,
 				58509FF12C74F0A800C74984 /* ProductCartTableViewCell.swift */,
+				58CC9ABF2CC1615600B4A8B4 /* CopyToClipboard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,12 +219,15 @@
 				58CDDF672C382FB800E3753A /* CalculationTableViewCell.swift in Sources */,
 				58EB326E2C5131F7004D5FD1 /* StorageManager.swift in Sources */,
 				58509FF02C74D14600C74984 /* ProductCartTableViewController.swift in Sources */,
+				58CC9AC02CC1615600B4A8B4 /* CopyToClipboard.swift in Sources */,
 				587C962E2C382146004A170E /* StartViewController.swift in Sources */,
 				58CDDF652C382AF900E3753A /* CalculationViewController.swift in Sources */,
 				587C962A2C382146004A170E /* AppDelegate.swift in Sources */,
 				587C962C2C382146004A170E /* SceneDelegate.swift in Sources */,
 				58EB325B2C4D5BFA004D5FD1 /* TabBarViewController.swift in Sources */,
+				58509FF42C7E117700C74984 /* SettingsViewController.swift in Sources */,
 				58B91CA02C5A34660090F8EC /* Calculations.swift in Sources */,
+				588E1D0B2CB02E3D0006C6BB /* Measure.swift in Sources */,
 				58EB32782C513B0C004D5FD1 /* DishInformationViewController.swift in Sources */,
 				58EB325D2C4D5CC6004D5FD1 /* CookBookTableViewController.swift in Sources */,
 				58EB327A2C57DD72004D5FD1 /* ProductInformationTableViewCell.swift in Sources */,
@@ -363,7 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2P5N39CTA7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KcalDish/Info.plist;
@@ -377,7 +389,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = vladisrud.KcalDish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -396,7 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 2P5N39CTA7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KcalDish/Info.plist;
@@ -410,7 +422,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = vladisrud.KcalDish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

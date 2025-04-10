@@ -149,7 +149,7 @@ extension DishInformationViewController: UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! ProductInformationTableViewCell
         for _ in 0..<cellNumber {
             cell.productNameLabel.text = products[indexPath.row].name
-            cell.productMassLabel.text = "Mass: \(products[indexPath.row].mass)"
+            cell.productMassLabel.text = "Mass: \(String(format: "%.0f", products[indexPath.row].mass))"
             cell.productKcalLabel.text = "Kcal: \(products[indexPath.row].kcal)"
             cell.productFatsLabel.text = "Fats: \(products[indexPath.row].fats)"
             cell.productCarbsLabel.text = "Carbs: \(products[indexPath.row].carbohydrates)"

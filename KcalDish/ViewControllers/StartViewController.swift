@@ -152,7 +152,7 @@ extension StartViewController: UITableViewDataSource, UITableViewDelegate {
             guard let self = self else { return }
             
             if let match = self.productCart.first(where: { $0.name == newText}) {
-                cell.productMassTextField.text  = "\(match.mass)"
+                cell.productMassTextField.text  = "\(String(format: "%.0f", match.mass))"
                 cell.productKcalTextField.text  = "\(match.kcal)"
                 cell.productFatsTextField.text  = "\(match.fats)"
                 cell.productCarbsTextField.text = "\(match.carbohydrates)"
@@ -190,13 +190,18 @@ extension StartViewController: UITableViewDataSource, UITableViewDelegate {
                 productCart.fats = createDoubleFromTFText(cell.productFatsTextField)
                 productCart.carbohydrates = createDoubleFromTFText(cell.productCarbsTextField)
                 productCart.proteins = createDoubleFromTFText(cell.productProtsTextField)
+                
+            }
+            
+            if checkProduct(product) == true {
                 newDish.addToIngredients(product)
             }
+            
             clearAllTF(cell)
         }
         newDish = calculation.getDishNutrition(newDish, totalMass: totalMass)
         storageManager.saveContext()
-        showAlert()
+        showAlert(newDish)
     }
     
 }
@@ -207,7 +212,7 @@ extension StartViewController {
         view.endEditing(true)
     }
     
-    func showAlert() {
+    func showAlert(_ dish: Dish) {
         let alert = UIAlertController(title: "Succes!", message: "Nutrition Calculated", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { [unowned self] _ in
             if let tabBC = self.tabBarController {
@@ -216,8 +221,17 @@ extension StartViewController {
                     navigationController?.pushViewController(selectedNC, animated: true)
                 }
             }
+            showDishInfo(dish)
         })
         present(alert, animated: true)
+    }
+    
+    func showDishInfo(_ dish: Dish) {
+        let dishInfoVC = DishInformationViewController()
+        dishInfoVC.dish = dish
+        dishInfoVC.products = getAddonArray(dish)
+        dishInfoVC.cellNumber = dishInfoVC.products.count
+        present(dishInfoVC, animated: true)
     }
     
     func createDoubleFromTFText(_ tf: UITextField) -> Double {
@@ -266,6 +280,23 @@ extension StartViewController {
         cell.productProtsTextField.text = ""
         dishNameTextField.text = ""
         dishTotalMassTextField.text = ""
+    }
+    
+    func addNavBarButton() {
+        let _ = UIBarButtonItem(
+            image: UIImage(systemName: "gearshape.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(openSettings)
+        )
+    }
+    
+    @objc func openSettings() {
+        
+    }
+    
+    func getAddonArray(_ dish: Dish) -> [Ingredients] {
+        (dish.ingredients as? Set<Ingredients>)?.sorted(by: { $0.id < $1.id }) ?? []
     }
     
 }
